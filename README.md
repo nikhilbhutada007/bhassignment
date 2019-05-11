@@ -11,14 +11,14 @@ However emphasis is given on:
 *	Technologies used are Spring Boot, Spring Security, Spring Data, Gradle, H2, JUnit, Mockito, HTML, JQuery
 
 ####How to run
-*	App can be run as a standalone Spring Boot app from IDE (Preferably **STS** as all the indentations, formatting, IDE plugin are specific to this IDE on Windows). Execute below command if project structure is broken.
+*	App can be run as a standalone Spring Boot app from IDE (Preferably **STS** as all the indentations, formatting, IDE plugin are specific to this IDE on Windows). Execute below command if project structure is broken.  
 
 	gradlew cleanEclipse eclipse   
 
 OR
 
-*	Alternatively, app WAR can be deployed on Tomcat. Copy the WAR into Webapps folder.
-  
+*	Alternatively, app WAR can be deployed on Tomcat. Copy the WAR into Webapps folder.  
+
 	gradlew clean build -x test
 	
 
