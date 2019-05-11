@@ -1,6 +1,7 @@
 ###Getting Started
 
 ####Reference Documentation
+
 Solution to the "Secondary current accounts" assignment. Note that I could not get clarity on "Secondary current accounts" from Blue Harvest so I am assuming them to be normal "current accounts". Some ideas which I had thought of initially are intentionally not implemented because of scope of problem statement and time-lines viz. extra API, Generalizations i.e. Types of account since there is only one type, command design pattern for transaction verbs like DEBIT, CREDIT, INTEREST etc.
 
 However emphasis is given on:
