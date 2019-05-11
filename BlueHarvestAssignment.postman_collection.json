@@ -1,0 +1,117 @@
+{
+	"id": "86450366-0f71-49dc-24eb-ecf617784d2c",
+	"name": "BlueHarvestAssignment",
+	"description": "",
+	"order": [
+		"c3e36a66-e791-0ed5-389b-7e036c4202c0",
+		"a19d4530-fab5-2028-1ad9-02d33174c9f4",
+		"3d14bdb7-3eb2-c3a1-b73e-c9cee518b283"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1557292119370,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "3d14bdb7-3eb2-c3a1-b73e-c9cee518b283",
+			"headers": "Content-Type: application/json\nAuthorization: Basic c3lzdGVtOnN5c3RlbQ==\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic c3lzdGVtOnN5c3RlbQ==",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/assignment-1.0/transact",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1557298833894,
+			"name": "Perform transaction",
+			"description": "",
+			"collectionId": "86450366-0f71-49dc-24eb-ecf617784d2c",
+			"responses": [],
+			"rawModeData": "{\n\t\"accountId\": 3,\n\t\"amount\": 10,\n\t\"type\": \"credit\"\n}"
+		},
+		{
+			"id": "a19d4530-fab5-2028-1ad9-02d33174c9f4",
+			"headers": "Authorization: Basic c3lzdGVtOnN5c3RlbQ==\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Basic c3lzdGVtOnN5c3RlbQ==",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/assignment-1.0/accounts",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1557298836585,
+			"name": "Open current account",
+			"description": "",
+			"collectionId": "86450366-0f71-49dc-24eb-ecf617784d2c",
+			"responses": [],
+			"rawModeData": "{\n\t\"customerId\": 1,\n\t\"initialCredit\": \"100\"\n}"
+		},
+		{
+			"id": "c3e36a66-e791-0ed5-389b-7e036c4202c0",
+			"headers": "Authorization: Basic c3lzdGVtOnN5c3RlbQ==\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Basic c3lzdGVtOnN5c3RlbQ==",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/assignment-1.0/customers/1",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1557298839470,
+			"name": "Get customer by ID",
+			"description": "",
+			"collectionId": "86450366-0f71-49dc-24eb-ecf617784d2c",
+			"responses": []
+		}
+	]
+}

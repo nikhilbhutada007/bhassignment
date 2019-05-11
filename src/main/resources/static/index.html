@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#a1").css('display', 'none');
+	    $("#a1").fadeIn(500);
+	    $("#a1").animate({zoom: '150%'}, "slow");
+		$("#a2").css('display', 'none');
+	    $("#a2").fadeIn(1000);
+	    $("#a2").animate({zoom: '150%'}, "slow");
+		$("#a3").css('display', 'none');
+	    $("#a3").fadeIn(1500);
+	    $("#a3").animate({zoom: '150%'}, "slow");
+	});
+</script>
+</head>
+<body>
+	<h2>Available API</h2>
+	<a id="a1" href="CustomersPage/index.html" title="View Customer Details">View Customer Details</a>
+	<br><br>
+	<a id="a2" href="AccountsPage/index.html" title="Open Current Account">Open Current Account</a>
+	<br><br>
+	<a id="a3" href="TransactionsPage/index.html" title="Create Transaction">Create Transaction</a>
+</body>
+</html>

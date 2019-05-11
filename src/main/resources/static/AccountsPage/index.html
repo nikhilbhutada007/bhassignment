@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js'></script>
+</head>
+<script type='text/javascript'>
+	function createAccount(id, balance) {
+		var details = JSON.stringify({customerId: id, initialCredit: balance});
+		$.ajax({
+			url: '/assignment-1.0/accounts/',
+			type: 'POST',
+			processData: false,
+			data: details,
+			contentType: 'application/json',
+			success: function(data) {
+				alert('Opened account ID: ' + data.accountId);
+			},
+			error: function() {
+			    alert("Account could not be opened !");
+			}
+		});
+	}
+</script>
+<body>
+	<h2>Accounts</h2>
+	<table style="border:0px;">
+		<tr>
+			<td>Enter customer ID:&emsp;</td>
+			<td><input type='text' id='param1'></td>
+		</tr>
+		<tr>
+			<td>Enter Initial Credit:&emsp;</td>
+			<td><input type='text' id='param2'></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><button onclick='return createAccount(param1.value, param2.value);'>Create Account</button></td>
+		</tr>
+	</table>
+</body>
+</html>

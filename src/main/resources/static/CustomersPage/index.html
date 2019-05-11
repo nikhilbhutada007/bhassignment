@@ -1,0 +1,32 @@
+<html>
+<head>
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js'></script>
+</head>
+<script type='text/javascript'>
+	function getInfo(id) {
+		$.getJSON('/assignment-1.0/customers/' + id, function(data) {
+			$('#header').attr("hidden", false);
+			$('p').text((JSON.stringify(data, undefined, 10)));
+		}).fail(function() {
+			$('#header').attr("hidden", true);
+			$('p').text('');
+		    alert("No such customer found !");
+		  });
+	}
+</script>
+<body>
+	<h2>Customers</h2>
+	<table style="border:0px;">
+		<tr>
+			<td>Enter customer ID:&emsp;</td>
+			<td><input type='text' id='param1'></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><button onclick='return getInfo(param1.value);'>View</button></td>
+		</tr>
+	</table>
+	<h4 id='header' hidden=true>Details of accounts of customer with reverse chronological transactions:</h4>
+	<p id='p' style='background-color: #ABEBC6; white-space: pre-wrap;'></p>
+</body>
+</html>

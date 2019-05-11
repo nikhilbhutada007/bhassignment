@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js'></script>
+</head>
+<script type='text/javascript'>
+	function transact(id, amount, type) {
+		var details = JSON.stringify({accountId: id, amount: amount, type: type});
+		$.ajax({
+			url: '/assignment-1.0/transact/',
+			type: 'POST',
+			processData: false,
+			data: details,
+			contentType: 'application/json',
+			success: function(data) {
+				alert('Transaction ID: ' + data.transactionId);
+			},
+			error: function() {
+			    alert("Transaction failed !");
+			}
+		});
+	}
+</script>
+<body>
+	<h2>Transactions</h2>
+	<table style="border:0px;">
+		<tr>
+			<td>Enter account ID:&emsp;</td>
+			<td><input type='text' id='param1'></td>
+		</tr>
+		<tr>
+			<td>Enter amount:&emsp;</td>
+			<td><input type='text' id='param2'></td>
+		</tr>
+		<tr>
+			<td>Select type:&emsp;</td>
+			<td>
+				<select id="param3">
+	  				<option value="credit">CREDIT</option>
+	  				<option value="debit">DEBIT</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><button onclick='return transact(param1.value, param2.value, param3.value);'>Transact</button></td>
+		</tr>
+	</table>
+</body>
+</html>
