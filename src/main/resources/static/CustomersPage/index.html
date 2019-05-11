@@ -11,7 +11,7 @@
 			$.getJSON('/assignment-1.0/customers/' + id, function(data) {
 				$('#error').attr("hidden", true);
 				$('#header').attr("hidden", false);
-				$('p').text((JSON.stringify(data, undefined, 10)));
+				$('p').text((JSON.stringify(data, undefined, 10)).replace(/\"/g, ""));
 			}).fail(function() {
 				$('#header').attr("hidden", true);
 				$('p').text('');
@@ -38,7 +38,7 @@
 		<div class="alert alert-danger col-sm-offset-2 col-sm-4" hidden="true" id="error">No such customer found !</div>
 		</form>
 		<div class="container">
-			<h5 id='header' hidden=true><label>Details of accounts of customer with reverse chronological transactions:</label></h5>
+			<h5 id='header' hidden=true><label>Raw details of accounts of customer with reverse chronological transactions:</label></h5>
 			<p id='p' style='background-color: #ABEBC6; white-space: pre-wrap;' class="text-info"></p>
 		</div>
 	</body>
