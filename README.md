@@ -8,7 +8,7 @@ However emphasis is given on:
 *	Code quality and readability
 *	Good REST API design (as in Richardson maturity model)
 *	Adherence to good use of general industry standard tools
-*	Technologies used are JDK8, Spring Boot, Spring Security, Spring Data, Gradle, H2, JUnit, Mockito, HTML5, JQuery
+*	Technologies used are JDK8, Spring Boot, Spring Security, Spring Data, Gradle, H2, JUnit, Mockito, HTML5, Bootstrap, JQuery
 
 #### How to run
 *	App can be run as a standalone Spring Boot app from IDE (Preferably **STS** as all the indentations, formatting, IDE plugin are specific to this IDE on Windows). Execute below command if project structure is broken.

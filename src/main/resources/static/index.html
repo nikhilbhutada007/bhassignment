@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script>
-	$(document).ready(function(){
-		$("#a1").css('display', 'none');
-	    $("#a1").fadeIn(500);
-	    $("#a1").animate({zoom: '150%'}, "slow");
-		$("#a2").css('display', 'none');
-	    $("#a2").fadeIn(1000);
-	    $("#a2").animate({zoom: '150%'}, "slow");
-		$("#a3").css('display', 'none');
-	    $("#a3").fadeIn(1500);
-	    $("#a3").animate({zoom: '150%'}, "slow");
-	});
-</script>
-</head>
-<body>
-	<h2>Available API</h2>
-	<a id="a1" href="CustomersPage/index.html" title="View Customer Details">View Customer Details</a>
-	<br><br>
-	<a id="a2" href="AccountsPage/index.html" title="Open Current Account">Open Current Account</a>
-	<br><br>
-	<a id="a3" href="TransactionsPage/index.html" title="Create Transaction">Create Transaction</a>
-</body>
+	<head>
+	  	<meta charset="utf-8">
+	  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#a1").css('display', 'none');
+		    $("#a1").fadeIn(500);
+		    $("#a1").animate({zoom: '150%'}, "slow");
+			$("#a2").css('display', 'none');
+		    $("#a2").fadeIn(500);
+		    $("#a2").animate({zoom: '150%'}, "slow");
+			$("#a3").css('display', 'none');
+		    $("#a3").fadeIn(500);
+		    $("#a3").animate({zoom: '150%'}, "slow");
+		});
+	</script>
+	</head>
+	<body>
+		<div class="page-header">
+			<h2>Available API</h2>
+		</div>
+		<div class="navbar-header">
+			<a class="form-control" id="a1" href="CustomersPage/index.html" title="View Customer Details">View Customer Details</a>
+			<br><br>
+			<a class="form-control" id="a2" href="AccountsPage/index.html" title="Open Current Account">Open Current Account</a>
+			<br><br>
+			<a class="form-control" id="a3" href="TransactionsPage/index.html" title="Create Transaction">Create Transaction</a>
+		</div>
+	</body>
 </html>

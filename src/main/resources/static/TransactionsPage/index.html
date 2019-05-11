@@ -1,50 +1,67 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js'></script>
-</head>
-<script type='text/javascript'>
-	function transact(id, amount, type) {
-		var details = JSON.stringify({accountId: id, amount: amount, type: type});
-		$.ajax({
-			url: '/assignment-1.0/transact/',
-			type: 'POST',
-			processData: false,
-			data: details,
-			contentType: 'application/json',
-			success: function(data) {
-				alert('Transaction ID: ' + data.transactionId);
-			},
-			error: function() {
-			    alert("Transaction failed !");
-			}
-		});
-	}
-</script>
-<body>
-	<h2>Transactions</h2>
-	<table style="border:0px;">
-		<tr>
-			<td>Enter account ID:&emsp;</td>
-			<td><input type='text' id='param1'></td>
-		</tr>
-		<tr>
-			<td>Enter amount:&emsp;</td>
-			<td><input type='text' id='param2'></td>
-		</tr>
-		<tr>
-			<td>Select type:&emsp;</td>
-			<td>
-				<select id="param3">
-	  				<option value="credit">CREDIT</option>
-	  				<option value="debit">DEBIT</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td><button onclick='return transact(param1.value, param2.value, param3.value);'>Transact</button></td>
-		</tr>
-	</table>
-</body>
+	<head>
+	  	<meta charset="utf-8">
+	  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	</head>
+	<script type='text/javascript'>
+		function transact(id, amount, type) {
+			var details = JSON.stringify({accountId: id, amount: amount, type: type});
+			$.ajax({
+				url: '/assignment-1.0/transact/',
+				type: 'POST',
+				processData: false,
+				data: details,
+				contentType: 'application/json',
+				success: function(data) {
+					$('#error').attr("hidden", true);
+					$('#success').html('Transaction ID: ' + data.transactionId);
+					$('#success').attr("hidden", false);
+				},
+				error: function() {
+					$('#success').attr("hidden", true);
+					$('#error').html("Transaction failed due to invalid data !");
+					$('#error').attr("hidden", false);
+				}
+			});
+		}
+	</script>
+	<body>
+		<div class="page-header">
+			<h1>Transactions Form</h1>
+		</div>
+		<form class="form-horizontal">
+		  	<div class="form-group">
+		    	<label class="control-label col-sm-2">Enter Account ID:</label>
+		    	<div class="col-xs-2">
+		      		<input type="text" class="form-control" id="param1" placeholder="Account ID">
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label class="control-label col-sm-2">Enter Amount:</label>
+		    	<div class="col-xs-2">
+		      		<input type="text" class="form-control" id="param2" placeholder="Amount">
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label class="control-label col-sm-2">Select Type:</label>
+		    	<div class="col-xs-2">
+					<select class="form-control" id="param3">
+		  				<option value="credit">CREDIT</option>
+		  				<option value="debit">DEBIT</option>
+					</select>
+					</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<div class="col-sm-offset-2 col-sm-10">
+		      		<button type="button" class="btn btn-primary" onclick='transact(param1.value, param2.value, param3.value);'>Make Transaction</button>
+		    	</div>
+		  	</div>
+		  	<div class="alert alert-danger col-sm-offset-2 col-sm-4" hidden="true" id="error"></div>
+		  	<div class="alert alert-success col-sm-offset-2 col-sm-3" hidden="true" id="success"></div>
+		</form>
+	</body>
 </html>

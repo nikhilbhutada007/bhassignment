@@ -1,32 +1,45 @@
 <html>
-<head>
-	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js'></script>
-</head>
-<script type='text/javascript'>
-	function getInfo(id) {
-		$.getJSON('/assignment-1.0/customers/' + id, function(data) {
-			$('#header').attr("hidden", false);
-			$('p').text((JSON.stringify(data, undefined, 10)));
-		}).fail(function() {
-			$('#header').attr("hidden", true);
-			$('p').text('');
-		    alert("No such customer found !");
-		  });
-	}
-</script>
-<body>
-	<h2>Customers</h2>
-	<table style="border:0px;">
-		<tr>
-			<td>Enter customer ID:&emsp;</td>
-			<td><input type='text' id='param1'></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td><button onclick='return getInfo(param1.value);'>View</button></td>
-		</tr>
-	</table>
-	<h4 id='header' hidden=true>Details of accounts of customer with reverse chronological transactions:</h4>
-	<p id='p' style='background-color: #ABEBC6; white-space: pre-wrap;'></p>
-</body>
+	<head>
+	  	<meta charset="utf-8">
+	  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	</head>
+	<script type='text/javascript'>
+		function getInfo(id) {
+			$.getJSON('/assignment-1.0/customers/' + id, function(data) {
+				$('#error').attr("hidden", true);
+				$('#header').attr("hidden", false);
+				$('p').text((JSON.stringify(data, undefined, 10)));
+			}).fail(function() {
+				$('#header').attr("hidden", true);
+				$('p').text('');
+				$('#error').attr("hidden", false);
+			  });
+		}
+	</script>
+	<body>
+		<div class="page-header">
+			<h1>Customers Form</h1>
+		</div>
+		<form class="form-horizontal">
+		  	<div class="form-group">
+		    	<label class="control-label col-sm-2">Enter Customer ID:</label>
+		    	<div class="col-xs-2">
+		      		<input type="text" class="form-control" id="param1" placeholder="Customer ID">
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<div class="col-sm-offset-2 col-sm-10">
+		      		<button type="button" class="btn btn-primary" onclick='getInfo(param1.value);'>View</button>
+		    	</div>
+		  	</div>
+		<div class="alert alert-danger col-sm-offset-2 col-sm-4" hidden="true" id="error">No such customer found !</div>
+		</form>
+		<div class="container">
+			<h5 id='header' hidden=true><label>Details of accounts of customer with reverse chronological transactions:</label></h5>
+			<p id='p' style='background-color: #ABEBC6; white-space: pre-wrap;' class="text-info"></p>
+		</div>
+	</body>
 </html>
