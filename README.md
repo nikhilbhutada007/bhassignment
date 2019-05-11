@@ -18,7 +18,7 @@ However emphasis is given on:
 OR
 
 *	Alternatively, app WAR can be deployed on Tomcat. Copy the WAR into Webapps folder.
-
+  
 	gradlew clean build -x test
 	
 
